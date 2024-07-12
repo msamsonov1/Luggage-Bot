@@ -1,0 +1,36 @@
+import random
+
+# Define locations
+train_platform = "Train Platform"
+plane_terminal = "Plane Terminal"
+dulles_station = "Dulles Airport Station"
+reagan_station = "Reagan National Airport Station"
+
+# Function to greet passenger
+def greet_passenger(station):
+  """Greets a passenger and offers assistance."""
+  greetings = ["Hello, welcome to", "Hi there! Arriving at"]
+  greeting = random.choice(greetings) + " " + station + "."
+  print(greeting)
+  print("Would you like help carrying your luggage to the plane terminal?")
+
+# Function to simulate luggage carrying
+def carry_luggage(answer):
+  """Simulates carrying luggage based on passenger's answer."""
+  if answer.lower() == "yes":
+    print("Great! I can help you with that. Please follow me.")
+  else:
+    print("No problem! Have a safe trip.")
+
+# Main loop to simulate interaction
+while True:
+  # Choose random station
+  station = random.choice([dulles_station, reagan_station])
+  greet_passenger(station)
+  answer = input("Enter 'yes' or 'no': ")
+  carry_luggage(answer)
+  # Exit loop on 'quit'
+  if answer.lower() == "quit":
+    break
+
+print("Atlas is shutting down. See you next time!")
